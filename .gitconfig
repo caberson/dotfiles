@@ -16,6 +16,8 @@
 	
 	# Commit all changes
 	ca = !git add -A && git commit -av
+	# Commit with a message
+	cm = commit -m
 	# Switch to a branch, creating it if necessary
 	go = checkout -B
 	# Show verbose output about tags, branches or remotes
@@ -69,7 +71,7 @@
 #excludesfile = /Users/caberchu/.gitignore_global
 [merge]
 	# Include summaries of merged commits in newly created merge commit messages
-	log = true
+	# log = true
 
 # Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
@@ -92,6 +94,12 @@
 
 [push]
 	default = simple
+
+[diff]
+	tool = opendiff
+
+[merge]
+	tool = opendiff
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
