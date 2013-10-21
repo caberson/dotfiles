@@ -38,5 +38,8 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
+# If possible, add bash git auto completion
+[ -f ~/scripts/.git-completion.bash && source ~/scripts/.git-completion.bash
+
 # Load virtualenvwrapper
 source /usr/local/bin/virtualenvwrapper_lazy.sh
