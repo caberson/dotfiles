@@ -41,5 +41,5 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # If possible, add bash git auto completion
 [ -f ~/scripts/.git-completion.bash ] && source ~/scripts/.git-completion.bash
 
-# Load virtualenvwrapper
-source /usr/local/bin/virtualenvwrapper_lazy.sh
+# If possible, load virtualenvwrapper
+[ -f /usr/local/bin/virtualenvwrapper_lazy.sh ] && source /usr/local/bin/virtualenvwrapper_lazy.sh
