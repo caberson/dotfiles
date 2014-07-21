@@ -46,7 +46,9 @@ set list
 " Highlight searches
 set hlsearch
 " Ignore case of searches
-set ignorecase
+" set ignorecase
+" Smartcase for searches
+" set smartcase
 " Highlight dynamically as pattern is typed
 set incsearch
 " Always show status line
@@ -71,11 +73,29 @@ set showcmd
 set colorcolumn=80
 " Use relative line numbers
 if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
+	" set relativenumber
+	" au BufReadPost * set relativenumber
 endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
+" No backups
+set nobackup
+" Keep cursor in place when joining lines using J
+nnoremap J mzJ`z
+" Center on search next
+nnoremap n nzz
+nnoremap } }zz
+" Move by rows rather than by lines
+" nnoremap j gj
+" nnoremap k gk
+" Break on linebreak only
+set linebreak
+" No wapfile
+" set noswapfile
+" Set swapfile dir
+set directory=/var/tmp
+" Make backspace work everywhere
+set backspace=indent,eol,start
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
@@ -96,3 +116,8 @@ if has("autocmd")
 	" Treat .json files as .js
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 endif
+
+autocmd FileType php,javascript BufWritePre <buffer> :call StripWhitespace()<CR>
+
+" Load pathogen plugin
+call pathogen#infect()
