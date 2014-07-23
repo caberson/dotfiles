@@ -119,5 +119,7 @@ endif
 
 autocmd FileType php,javascript BufWritePre <buffer> :call StripWhitespace()<CR>
 
+filetype plugin indent on
+
 " Load pathogen plugin
 call pathogen#infect()
