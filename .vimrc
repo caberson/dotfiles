@@ -128,5 +128,7 @@ if has("autocmd")
 endif
 
 
+filetype plugin indent on
+
 " Load pathogen plugin
 call pathogen#infect()
