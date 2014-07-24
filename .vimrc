@@ -25,6 +25,15 @@ set directory=~/.vim/swaps
 if exists("&undodir")
 	set undodir=~/.vim/undo
 endif
+set autoindent
+set copyindent
+set shiftwidth=4
+set shiftround
+set showmatch
+set ignorecase
+set smarttab
+set hlsearch
+
 
 " Respect modeline in files
 set modeline
@@ -90,12 +99,8 @@ nnoremap } }zz
 " nnoremap k gk
 " Break on linebreak only
 set linebreak
-" No wapfile
-" set noswapfile
-" Set swapfile dir
-set directory=/var/tmp
-" Make backspace work everywhere
-set backspace=indent,eol,start
+" Paste mode
+set pastetoggle=<F2>
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
@@ -109,15 +114,19 @@ noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
+
 " Automatic commands
 if has("autocmd")
 	" Enable file type detection
 	filetype on
+
+	filetype plugin indent on
 	" Treat .json files as .js
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+
+	autocmd FileType php,javascript,python BufWritePre <buffer> :call StripWhitespace()<CR>
 endif
 
-autocmd FileType php,javascript BufWritePre <buffer> :call StripWhitespace()<CR>
 
 " Load pathogen plugin
 call pathogen#infect()
