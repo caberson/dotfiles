@@ -1,2 +1,2 @@
 export PATH="$HOME/bin:$PATH"
-export PATH="/usr/local/mysql:$PATH"
+export PATH="/usr/local/mysql/bin:$PATH"
