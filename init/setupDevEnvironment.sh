@@ -18,3 +18,9 @@ echo "$userConf" | sudo tee /etc/apache2/users/${username}.conf
 mkdir -p ~/Sites
 
 sudo apachectl start
+
+
+# Install python PIP
+echo "You should install python PIP"
+# curl -o get-pip.py 'https://bootstrap.pypa.io/get-pip.py'
+# python get-pip.py
