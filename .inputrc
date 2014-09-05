@@ -50,3 +50,5 @@ set convert-meta off
 #"\e\e[C": forward-word
 #"\e\e[D": backward-word
 
+# Disable cmd line bell
+set bell-style none
