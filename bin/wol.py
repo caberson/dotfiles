@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # wol.py
 
+import sys
 import socket
 import struct
 
@@ -24,8 +25,8 @@ def wake_on_lan(mac_address):
     # Split up the hex values and pack.
     for i in range(0, len(data), 2):
         send_data = ''.join(
-			[send_data, struct.pack('B', int(data[i: i + 2], 16))]
-		)
+            [send_data, struct.pack('B', int(data[i: i + 2], 16))]
+        )
 
     # Broadcast it to the LAN.
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -34,19 +35,24 @@ def wake_on_lan(mac_address):
     
 
 if __name__ == '__main__':
-	import argparse
+    import argparse
     # Use macaddresses with any seperators.
     # wake_on_lan('0F:0F:DF:0F:BF:EF')
     # wake_on_lan('0F-0F-DF-0F-BF-EF')
     # or without any seperators.
     # wake_on_lan('0F0FDF0FBFEF')
-	wake_on_lan('00:16:cb:b0:a8:15')
-	parser = argparse.ArgumentParser(
-		description='Wake computers using mac address.'
-	)
-	parser.add_argument('mac_address', nargs='?')
-	args = parser.parse_args()
-	try:
-		wake_on_lan(args.mac_address)
-	except Exception as e:
-		print e
+    wake_on_lan('00:16:cb:b0:a8:15')
+    wake_on_lan('60:c5:47:22:2a:21')
+    parser = argparse.ArgumentParser(
+        description='Wake computers using mac address.'
+    )
+    parser.add_argument('mac_address', nargs='?')
+    args = parser.parse_args()
+    if args.mac_address is None:
+        print 'Please specify a mac address.'
+        sys.exit(0)
+
+    try:
+        wake_on_lan(args.mac_address)
+    except Exception as e:
+        print e
