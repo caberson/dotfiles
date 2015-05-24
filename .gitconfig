@@ -20,6 +20,8 @@
 	cm = commit -m
 	# Switch to a branch, creating it if necessary
 	go = checkout -B
+	# Switch to a branch
+	co = checkout
 	# Show verbose output about tags, branches or remotes
 	tags = tag -l
 	branches = branch -a
@@ -32,6 +34,9 @@
 	undopush = push -f origin HEAD^:master
 	# show files ignored by git
 	ign = ls-files -o -i --exclude-standard
+
+	# amend last commit
+	amend = commit --amend
 
 [apply]
 	# Detect whitespace errors when applying a patch
