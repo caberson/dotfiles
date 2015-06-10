@@ -1,0 +1,10 @@
+host="cp-production.ca93gx5lpzee.us-east-1.rds.amazonaws.com"
+db="controlpanel"
+user="controlpanel"
+pwd="8zdtnMSP7DsGC5Lz"
+
+dumpfile="`eval date +%Y%m%d`.cp.prod.sql"
+dumpfilepath="/Users/caberchu/dumps/$dumpfile"
+echo $dumpfilepath
+
+~/bin/dump-db -h$host -d$db -u$user -p$pwd > $dumpfilepath

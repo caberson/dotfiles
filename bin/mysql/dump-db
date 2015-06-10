@@ -1,0 +1,25 @@
+host="127.0.0.1"
+# Define your db, user and pwd.
+db=""
+user="root"
+pwd=""
+
+while getopts h:d:p:f:u: option
+do
+	case "${option}" in
+		h)
+			host=${OPTARG}
+			;;
+		d)
+			db=${OPTARG}
+			;;
+		p) pwd=${OPTARG};;
+		u) user=$OPTARG;;
+	esac
+done
+
+# echo $host
+# echo $db
+# echo $user
+# echo $pwd
+mysqldump -h$host -u$user -p$pwd $db

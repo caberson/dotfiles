@@ -1,0 +1,36 @@
+# Define your variables here.
+host="127.0.0.1"
+db=""
+user="root"
+pwd=""
+
+
+# Always show usage.
+#if [ $# -eq 0 ]; then
+    echo "Usage: refresh-db-w-prod -h[host-name:$host] -d[db-name:$db] -f[sql-file]"
+#fi
+
+# Get options.
+while getopts h:d:f: option
+do
+	case "${option}" in
+		h)
+			host=${OPTARG}
+			;;
+		d)
+			db=${OPTARG}
+			;;
+		f)
+			dump=${OPTARG}
+			;;
+	esac
+done
+
+# Download production db if no dump file is specified.
+if [ -z "$dump" ]; then
+    dump=`~/bin/dump-prod-db`
+fi
+
+# Import
+~/bin/import-dump -h$host -d$db -f$dump
+
