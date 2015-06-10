@@ -1,9 +1,10 @@
-host="cp-production.ca93gx5lpzee.us-east-1.rds.amazonaws.com"
-db="controlpanel"
-user="controlpanel"
-pwd="8zdtnMSP7DsGC5Lz"
+# Update the variables.
+host=""
+db=""
+user=""
+pwd=""
 
-dumpfile="`eval date +%Y%m%d`.cp.prod.sql"
+dumpfile="`eval date +%Y%m%d`.prod.sql"
 dumpfilepath="/Users/caberchu/dumps/$dumpfile"
 echo $dumpfilepath
 
