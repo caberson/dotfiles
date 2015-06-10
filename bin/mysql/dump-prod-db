@@ -5,7 +5,7 @@ user=""
 pwd=""
 
 dumpfile="`eval date +%Y%m%d`.prod.sql"
-dumpfilepath="/Users/caberchu/dumps/$dumpfile"
+dumpfilepath="~/var/dumps/$dumpfile"
 echo $dumpfilepath
 
 ~/bin/dump-db -h$host -d$db -u$user -p$pwd > $dumpfilepath
