@@ -1,0 +1,32 @@
+host="127.0.0.1"
+db=""
+user="root"
+pwd=""
+
+
+if [ $# -eq 0 ]; then
+    echo "Usage: import-dump -h[host-name:$host] -d[db-name:$db] -f[sql-file]"
+    exit 1
+fi
+
+while getopts h:d:f: option
+do
+	case "${option}" in
+		h)
+			host=${OPTARG}
+			;;
+		d)
+			db=${OPTARG}
+			;;
+		f)
+			dump=${OPTARG}
+			;;
+	esac
+done
+
+# echo -h$host -u$user -p$pwd -e"\"DROP DATABASE $db; CREATE DATABASE $db\"" 
+mysql -h$host -u$user -p$pwd -e"DROP DATABASE $db"
+mysql -h$host -u$user -p$pwd -e"CREATE DATABASE $db"
+
+# echo mysql -h$host -u$user -p$pwd $db $dump
+mysql -h$host -u$user -p$pwd $db < $dump
