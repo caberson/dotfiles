@@ -102,6 +102,9 @@ set linebreak
 " Paste mode
 set pastetoggle=<F2>
 
+" Keyboard shortcuts
+:imap jj <Esc>
+
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
 	let save_cursor = getpos(".")
