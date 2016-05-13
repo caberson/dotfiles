@@ -40,3 +40,5 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # Run git branch auto-completion if exists
 test -f ~/.git-completion.bash && . $_
+
+eval "$(thefuck --alias doh)"
