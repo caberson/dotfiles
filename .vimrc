@@ -42,7 +42,7 @@ set cursorline
 set tabstop=2
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
+set nolist
 " Highlight searches
 set hlsearch
 " Ignore case of searches
@@ -72,6 +72,8 @@ if exists("&relativenumber")
 	set relativenumber
 	au BufReadPost * set relativenumber
 endif
+au InsertEnter * set number
+au InsertLeave * set relativenumber
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
