@@ -1,0 +1,9 @@
+Plugin 'w0rp/ale'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'scrooloose/nerdtree'
+
+set rtp+=/usr/local/opt/fzf
+Plugin 'junegunn/fzf.vim'
+
+Plugin 'junegunn/seoul256.vim'
+
