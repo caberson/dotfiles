@@ -42,4 +42,4 @@ complete -o "nospace" -W "Dock Finder Safari iTunes SystemUIServer Terminal" kil
 test -f ~/.git-completion.bash && . $_
 
 # Alias thefuck program to doh if found
-[ `command -v ls` ] && eval "$(thefuck --alias doh)"
+[ `command -v thefuck` ] && eval "$(thefuck --alias doh)"
