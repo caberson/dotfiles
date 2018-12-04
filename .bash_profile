@@ -33,7 +33,7 @@ done
 complete -W "NSGlobalDomain" defaults
 
 # Add `killall` tab completion for common apps
-complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall
+complete -o "nospace" -W "Dock Finder Safari iTunes SystemUIServer Terminal" killall
 
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
@@ -41,4 +41,5 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # Run git branch auto-completion if exists
 test -f ~/.git-completion.bash && . $_
 
-eval "$(thefuck --alias doh)"
+# Alias thefuck program to doh if found
+[ `command -v thefuck` ] && eval "$(thefuck --alias doh)"
